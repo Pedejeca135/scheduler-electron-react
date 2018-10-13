@@ -1,0 +1,105 @@
+{
+  "name": "_APP_NAME_",
+  "version": "1.0.0",
+  "description": "Seed Electron App",
+  "main": "public/electron.js",
+  "homepage": "./",
+  "scripts": {
+    "start-dev": "concurrently \"react-scripts start\" \"wait-on http://localhost:3000 && set ELECTRON_START_URL=http://localhost:3000 && electron .\"",
+    "start-prod": "electron .",
+    "start-react": "react-scripts start",
+    "build": "react-scripts build",
+    "dist": "electron-builder -- --em.main=build/electron.js",
+    "predist": "yarn build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "util",
+    "functional",
+    "server",
+    "client",
+    "browser"
+  ],
+  "author": {
+    "name": "Cristian Toledo",
+    "email": "crtoledo@bluezinc.cl"
+  },
+  "license": "CC0-1.0",
+  "contributors": [
+    "Cristian Toledo"
+  ],
+  "dependencies": {
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "@material-ui/core": "^3.1.2",
+    "@material-ui/icons": "^3.0.1",
+    "recharts": "latest",
+    "prop-types": "latest",
+    "form-data": "^2.1.2",
+    "node-xml-lite": "0.0.7",
+    "chai": "^4.0.0",
+    "csv-write-stream": "^2.0.0",
+    "mocha": "^5.2.0",
+    "prompt": "^1.0.0",
+    "request": "^2.81.0",
+    "winston": "^2.3.1",
+    "yargs": "^8.0.1",
+    "jquery": "latest"
+  },
+  "devDependencies": {
+    "electron": "latest",
+    "react-scripts": "2.0.3",
+    "electron-builder": "latest",
+    "wait-on": "latest",
+    "concurrently": "latest"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "build": {
+    "productName": "_APP_NAME_",
+    "appId": "uk.co._APP_NAME_",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.entertainment",
+      "target": [
+        "dmg"
+      ],
+      "icon": "elec-build/icon.icns",
+      "type": "distribution",
+      "identity": "Cristian Toledo hevia"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": "x64"
+        }
+      ],
+      "icon": "elec-build/icon.ico"
+    },
+    "linux": {
+      "target": [
+        "deb",
+        "AppImage"
+      ],
+      "icon": "elec-build/icons"
+    },
+    "directories": {
+      "buildResources": "elec-build",
+      "output": "release"
+    },
+    "electronDownload": {
+      "cache": "release/cache"
+    }
+  }
+}

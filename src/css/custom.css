@@ -1,0 +1,9 @@
+.leftNavMobileView {
+    position: absolute;
+    z-index: 100; 
+    display: none;
+}
+.leftNavDesktop {
+  padding-top: 10px;
+  display: block;
+}
